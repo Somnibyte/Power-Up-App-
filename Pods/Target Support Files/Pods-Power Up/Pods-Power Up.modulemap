@@ -1,0 +1,6 @@
+framework module Pods_Power_Up {
+  umbrella header "Pods-Power Up-umbrella.h"
+
+  export *
+  module * { export * }
+}

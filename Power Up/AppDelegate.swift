@@ -3,7 +3,7 @@
 //  Power Up
 //
 //  Created by Guled on 1/21/17.
-//  Copyright © 2017 Somnibyte. All rights reserved.
+//  Copyright © 2017 Guled. All rights reserved.
 //
 
 import UIKit
@@ -17,9 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        // Setting Up PageController Settings
+        let mainPageController = UIPageControl.appearance()
+        mainPageController.pageIndicatorTintColor = UIColor.lightGray
+        mainPageController.currentPageIndicatorTintColor = UIColor.white
+        mainPageController.backgroundColor = UIColor.clear
+        
+        
+        // Hide the status bar
+        UIApplication.shared.isStatusBarHidden = true
+        
+        
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
