@@ -211,7 +211,7 @@ class detailViewController: UIViewController {
         view.layer.shadowOffset = CGSize.zero
 
         view.layer.shadowOpacity = 0.3
-        
+
         view.layer.shadowRadius = 1
     }
 

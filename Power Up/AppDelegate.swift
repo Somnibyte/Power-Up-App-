@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Hide the status bar
         UIApplication.shared.isStatusBarHidden = true
-        
+
         return true
     }
 

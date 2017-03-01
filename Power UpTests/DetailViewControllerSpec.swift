@@ -30,7 +30,7 @@ class DetailViewControllerSpec: QuickSpec {
 
         it("Should contain the correct information from an article that is passed to this view via delegate.", closure: {
 
-            
+
 
         })
 

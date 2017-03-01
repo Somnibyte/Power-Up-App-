@@ -15,8 +15,8 @@ class ContentViewControllerSpec: QuickSpec {
 
     var articleDownloader: ArticleDownloader!
     var mainViewController: MainViewController!
-    var contentViewController:ContentViewController?
-    
+    var contentViewController: ContentViewController?
+
     override func spec() {
 
         beforeSuite {

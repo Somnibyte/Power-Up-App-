@@ -15,7 +15,7 @@ final class ArticleDownloader {
     var source: String?
 
     // Reference to view that the article downloader was instantiated in. This allows for presenting alerts.
-    var currentView: UIView!
+    weak var currentView: UIView!
 
     // Activity Indicator to display the progress of downloading our articles
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle:
@@ -26,7 +26,7 @@ final class ArticleDownloader {
         // The view variable helps specify where our activityIndicatorView will be placed on.
         self.currentView = view
 
-        // Our source 
+        // Our source
         self.source = source
     }
 
@@ -61,7 +61,7 @@ final class ArticleDownloader {
             case .failure( _):
 
                 completion(false, [])
-                
+
                 self.hideActivityIndicatory()
             }
         }
@@ -129,7 +129,7 @@ final class ArticleDownloader {
             if let potentialUrl =  article["url"] as? String {
 
                 articleUrl = URL(string: potentialUrl)
-                
+
             } else {
 
                 // If there is no URL available for the article, skip the article

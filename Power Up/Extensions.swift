@@ -51,13 +51,13 @@ extension UIImage {
 
         // Apply the gradient to the current graphics context
         context!.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: CGGradientDrawingOptions(rawValue: UInt32(0)))
-        
-        
+
+
         // Obtain the image from the current graphics context
         let image = UIGraphicsGetImageFromCurrentImageContext()
-        
+
         UIGraphicsEndImageContext()
-        
+
         return image!
     }
 

@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
 
         super.viewDidLoad()
 
-        // Setup UIAlertController 
+        // Setup UIAlertController
         alert.addAction(UIAlertAction(title: "Refresh", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
 
             // Restart the downloading process

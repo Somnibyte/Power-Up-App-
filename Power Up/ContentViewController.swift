@@ -95,7 +95,7 @@ class ContentViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
 
         super.viewDidAppear(true)
-        
+
         // Make sure an image exists
         if imageUrl != nil {
 
@@ -136,7 +136,7 @@ class ContentViewController: UIViewController {
 
         // Animate the UIImageView with a "zoom-in" effect
         UIView.animate(withDuration: 1.3) {
-            
+
             self.articleImage.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         }
 

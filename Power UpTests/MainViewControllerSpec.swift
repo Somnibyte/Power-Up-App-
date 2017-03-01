@@ -29,7 +29,7 @@ class MainViewControllerSpec: QuickSpec {
             self.articleDownloader = ArticleDownloader(view: self.mainViewController.view, source: "https://newsapi.org/v1/articles?source=polygon&sortBy=top&apiKey=9cd682bad8e8419780f3d08939fd9df7")
 
         }
-        
+
         it("Should not have a pageViewController that is nil.", closure: {
 
             self.articleDownloader.downloadArticles(completion: { success, data in
@@ -56,7 +56,7 @@ class MainViewControllerSpec: QuickSpec {
                 self.mainViewController.pageViewController.didMove(toParentViewController: self.mainViewController.pageViewController)
 
                 expect(self.mainViewController.pageViewController).toNot(beNil())
-                
+
             })
 
         })
@@ -86,7 +86,7 @@ class MainViewControllerSpec: QuickSpec {
                 self.mainViewController.view.addSubview(self.mainViewController.pageViewController.view)
 
                 self.mainViewController.pageViewController.didMove(toParentViewController: self.mainViewController.pageViewController)
-                
+
                 expect(self.mainViewController.articles.count).to(beGreaterThan(0))
             })
         })
@@ -96,7 +96,7 @@ class MainViewControllerSpec: QuickSpec {
 
             self.articleDownloader.downloadArticles(completion: { success, data in
 
-                if !success{
+                if !success {
                     expect(self.mainViewController.alert.isBeingPresented).toNot(beFalse())
                 }
 

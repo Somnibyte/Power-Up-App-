@@ -15,7 +15,7 @@ class ArticleDownloaderSpec: QuickSpec {
 
     var articleDownloader: ArticleDownloader!
     var mainViewController: MainViewController!
-    
+
     override func spec() {
 
         beforeSuite {
@@ -37,7 +37,7 @@ class ArticleDownloaderSpec: QuickSpec {
 
         it("[validateJSONData method] Should replace author with \"Anonymous\" if no author is given.", closure: {
 
-            let empty:AnyObject? = nil
+            let empty: AnyObject? = nil
             let dummyData: [[String:AnyObject]] = [["title":"Random Title" as AnyObject, "description": "Random Description" as AnyObject, "url": "http://www.asjdfljasdlkfjaldfjaljsdfakefakewhatfake.com" as AnyObject, "urlToImage":"noimage" as AnyObject]]
             let articles = self.articleDownloader.validateJSONData(jsonData: dummyData)
 
@@ -47,7 +47,7 @@ class ArticleDownloaderSpec: QuickSpec {
 
         it("[validateJSONData method] Should replace the title with \"Uknown\" if not title is given.", closure: {
 
-            let empty:AnyObject? = nil
+            let empty: AnyObject? = nil
             let dummyData: [[String:AnyObject]] = [["author":"Random Author" as AnyObject, "description": "Random Description" as AnyObject, "url": "http://www.asjdfljasdlkfjaldfjaljsdfakefakewhatfake.com" as AnyObject, "urlToImage":"noimage" as AnyObject]]
             let articles = self.articleDownloader.validateJSONData(jsonData: dummyData)
 
@@ -57,7 +57,7 @@ class ArticleDownloaderSpec: QuickSpec {
 
         it("[validateJSONData method] Should replace the description with \" \" if not description is given.", closure: {
 
-            let empty:AnyObject? = nil
+            let empty: AnyObject? = nil
             let dummyData: [[String:AnyObject]] = [["author":"Random Author" as AnyObject, "title": "Random Title" as AnyObject, "url": "http://www.asjdfljasdlkfjaldfjaljsdfakefakewhatfake.com" as AnyObject, "urlToImage":"noimage" as AnyObject]]
             let articles = self.articleDownloader.validateJSONData(jsonData: dummyData)
 
@@ -67,7 +67,7 @@ class ArticleDownloaderSpec: QuickSpec {
 
         it("[validateJSONData method] Should disregard the article if no URL is given. ", closure: {
 
-            let empty:AnyObject? = nil
+            let empty: AnyObject? = nil
             let dummyData: [[String:AnyObject]] = [["author":"Random Author" as AnyObject, "title": "Random Title" as AnyObject, "description": "Random Description" as AnyObject, "urlToImage":"noimage" as AnyObject]]
             let articles = self.articleDownloader.validateJSONData(jsonData: dummyData)
 
@@ -77,7 +77,7 @@ class ArticleDownloaderSpec: QuickSpec {
         it("[validateJSONData method] Should replace the article image with \"noimage\" asset name.", closure: {
 
 
-            let empty:AnyObject? = nil
+            let empty: AnyObject? = nil
             let dummyData: [[String:AnyObject]] = [["author":"Random Author" as AnyObject, "title": "Random Title" as AnyObject, "description": "Random Description" as AnyObject, "url": "http://www.asjdfljasdlkfjaldfjaljsdfakefakewhatfake.com" as AnyObject]]
             let articles = self.articleDownloader.validateJSONData(jsonData: dummyData)
 
@@ -85,5 +85,5 @@ class ArticleDownloaderSpec: QuickSpec {
             expect(articles[0].imageUrl).to(equal("noimage"))
         })
     }
-    
+
 }
