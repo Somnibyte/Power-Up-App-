@@ -2,18 +2,24 @@ PODS:
   - Alamofire (4.3.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
+  - Nimble (6.0.1)
   - NVActivityIndicatorView (3.2)
+  - Quick (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
   - AlamofireImage (~> 3.1)
+  - Nimble
   - NVActivityIndicatorView
+  - Quick
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
   NVActivityIndicatorView: 28942c18ced111a6a3ce5e6f5b27d9d40116d639
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
 
-PODFILE CHECKSUM: bb85a13187cb25c27c077c8a435339ae4007eb1a
+PODFILE CHECKSUM: e9d94925823501a0aeb90927ef75352b1bdc97ca
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

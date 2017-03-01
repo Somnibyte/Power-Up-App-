@@ -31,36 +31,36 @@ import UIKit
 public final class ActivityData {
     /// Size of activity indicator view.
     let size: CGSize
-    
+
     /// Message displayed under activity indicator view.
     let message: String?
-    
+
     /// Font of message displayed under activity indicator view.
     let messageFont: UIFont
-    
+
     /// Animation type.
     let type: NVActivityIndicatorType
-    
+
     /// Color of activity indicator view.
     let color: UIColor
-    
+
     /// Padding of activity indicator view.
     let padding: CGFloat
-    
+
     /// Display time threshold to actually display UI blocker.
     let displayTimeThreshold: Int
-    
+
     /// Minimum display time of UI blocker.
     let minimumDisplayTime: Int
-    
+
     /// Background color of the UI blocker
     let backgroundColor: UIColor
-    
+
     /**
      Create information package used to display UI blocker.
-     
+
      Appropriate NVActivityIndicatorView.DEFAULT_* values are used for omitted params.
-     
+
      - parameter size:                 size of activity indicator view.
      - parameter message:              message displayed under activity indicator view.
      - parameter messageFont:          font of message displayed under activity indicator view.
@@ -69,7 +69,7 @@ public final class ActivityData {
      - parameter padding:              padding of activity indicator view.
      - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
      - parameter minimumDisplayTime:   minimum display time of UI blocker.
-     
+
      - returns: The information package used to display UI blocker.
      */
     public init(size: CGSize? = nil,
@@ -99,7 +99,7 @@ public final class NVActivityIndicatorPresenter {
     private var hideTimer: Timer?
     private var isStopAnimatingCalled = false
     private let restorationIdentifier = "NVActivityIndicatorViewContainer"
-  
+
     private var activitySize = NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
 
     private let activityLabel: UILabel = {
@@ -111,14 +111,14 @@ public final class NVActivityIndicatorPresenter {
 
     /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
-    
+
     private init() { }
-    
+
     // MARK: - Public interface
-    
+
     /**
      Display UI blocker.
-     
+
      - parameter data: Information package used to display UI blocker.
      */
     public final func startAnimating(_ data: ActivityData) {
@@ -126,7 +126,7 @@ public final class NVActivityIndicatorPresenter {
         isStopAnimatingCalled = false
         showTimer = scheduledTimer(data.displayTimeThreshold, selector: #selector(showTimerFired(_:)), data: data)
     }
-    
+
     /**
      Remove UI blocker.
      */
@@ -141,31 +141,31 @@ public final class NVActivityIndicatorPresenter {
     /// - Parameter message: message displayed under activity indicator view.
     public final func setMessage(_ message: String?) {
         activityLabel.text = message
-        
+
         guard let message = message, !message.isEmpty else {
-            activityLabel.frame.size = CGSize.zero;
+            activityLabel.frame.size = CGSize.zero
             return
         }
         let screenSize = UIScreen.main.bounds
-        
+
         activityLabel.frame.size = NSString(string: message).boundingRect(
             with: CGSize(width: screenSize.width - 16.0, height: CGFloat.greatestFiniteMagnitude),
             options: .usesLineFragmentOrigin,
             attributes: [NSFontAttributeName: activityLabel.font],
             context: nil).size
-        
+
         activityLabel.center = CGPoint(
             x: screenSize.width / 2.0,
             y: (screenSize.height / 2.0) + activitySize.height + (activityLabel.frame.height / 2) + 8.0)
     }
-  
+
     // MARK: - Timer events
-  
+
     @objc private func showTimerFired(_ timer: Timer) {
         guard let activityData = timer.userInfo as? ActivityData else { return }
         show(with: activityData)
     }
-    
+
     @objc private func hideTimerFired(_ timer: Timer) {
         hideTimer?.invalidate()
         hideTimer = nil
@@ -175,13 +175,13 @@ public final class NVActivityIndicatorPresenter {
     }
 
     // MARK: - Helpers
-    
+
     private func show(with activityData: ActivityData) {
         let activityContainer: UIView = UIView(frame: UIScreen.main.bounds)
-        
+
         activityContainer.backgroundColor = activityData.backgroundColor
         activityContainer.restorationIdentifier = restorationIdentifier
-        
+
         activitySize = activityData.size
 
         let activityIndicatorView = NVActivityIndicatorView(
@@ -189,7 +189,7 @@ public final class NVActivityIndicatorPresenter {
             type: activityData.type,
             color: activityData.color,
             padding: activityData.padding)
-        
+
         activityIndicatorView.center = activityContainer.center
         activityIndicatorView.startAnimating()
         activityContainer.addSubview(activityIndicatorView)
@@ -198,15 +198,15 @@ public final class NVActivityIndicatorPresenter {
         activityLabel.textColor = activityIndicatorView.color
         setMessage(activityData.message)
         activityContainer.addSubview(activityLabel)
-      
+
         hideTimer = scheduledTimer(activityData.minimumDisplayTime, selector: #selector(hideTimerFired(_:)), data: nil)
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
         keyWindow.addSubview(activityContainer)
     }
-    
+
     private func hide() {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
-        
+
         for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
                 item.removeFromSuperview()
@@ -214,7 +214,7 @@ public final class NVActivityIndicatorPresenter {
         showTimer?.invalidate()
         showTimer = nil
     }
-    
+
     private func scheduledTimer(_ timeInterval: Int, selector: Selector, data: ActivityData?) -> Timer {
         return Timer.scheduledTimer(timeInterval: Double(timeInterval) / 1000,
                                     target: self,

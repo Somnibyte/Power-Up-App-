@@ -5,7 +5,8 @@ target 'Power Up' do
 pod 'Alamofire', '~> 4.3'
 pod 'NVActivityIndicatorView'
 pod 'AlamofireImage', '~> 3.1'
-
+pod 'Quick'
+pod 'Nimble'
 
     target 'Power UpTests' do
         inherit! :search_paths
@@ -13,6 +14,7 @@ pod 'AlamofireImage', '~> 3.1'
 
     target 'Power UpUITests' do
         inherit! :search_paths
+
     end
 end
 

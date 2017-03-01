@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		24A129B79AF7B70A85463BA5 /* Pods_Power_Up.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7780077B719710EFBF71B2 /* Pods_Power_Up.framework */; };
 		53220B537DACF9CD652EC99D /* Pods_Power_UpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F73BAF8E166743BE27F1B3 /* Pods_Power_UpTests.framework */; };
-		9A07498B1E37DAAD005F1F57 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A07498A1E37DAAD005F1F57 /* MainViewControllerTests.swift */; };
+		9A13F3CF1E6734910020259F /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F3CE1E6734910020259F /* MainViewControllerSpec.swift */; };
 		9A23875C1E35910C00909DCF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A23875B1E35910C00909DCF /* Article.swift */; };
 		9A23875E1E35948800909DCF /* ArticleDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A23875D1E35948800909DCF /* ArticleDownloader.swift */; };
-		9A3F9EDF1E385B9F003115B3 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F9EDE1E385B9F003115B3 /* detailViewController.swift */; };
-		9A3F9EE11E3941E2003115B3 /* ContentViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F9EE01E3941E2003115B3 /* ContentViewControllerTests.swift */; };
-		9A3F9EE61E39443B003115B3 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F9EE51E39443B003115B3 /* Effects.swift */; };
+		9A3F9EDF1E385B9F003115B3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F9EDE1E385B9F003115B3 /* DetailViewController.swift */; };
+		9A3F9EE61E39443B003115B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F9EE51E39443B003115B3 /* Extensions.swift */; };
 		9A44A6631E34180900FF62E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A44A6621E34180900FF62E5 /* AppDelegate.swift */; };
 		9A44A6651E34180900FF62E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A44A6641E34180900FF62E5 /* MainViewController.swift */; };
 		9A44A6681E34180900FF62E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A44A6661E34180900FF62E5 /* Main.storyboard */; };
@@ -24,7 +23,9 @@
 		9A44A6861E34180900FF62E5 /* Power_UpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A44A6851E34180900FF62E5 /* Power_UpUITests.swift */; };
 		9A44A6961E346C0D00FF62E5 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A44A6951E346C0D00FF62E5 /* ContentViewController.swift */; };
 		9A4A8A411E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A8A401E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift */; };
-		9ADCDF751E37E85B00B2DF96 /* ArticleDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCDF741E37E85B00B2DF96 /* ArticleDownloaderTests.swift */; };
+		9AC863171E67534F0093016D /* ArticleDownloaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC863161E67534F0093016D /* ArticleDownloaderSpec.swift */; };
+		9AC863191E67633E0093016D /* ContentViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC863181E67633E0093016D /* ContentViewControllerSpec.swift */; };
+		9AC8631B1E676AD50093016D /* DetailViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC8631A1E676AD50093016D /* DetailViewControllerSpec.swift */; };
 		9F2B3685DC062D03142ECFD9 /* Pods_Power_UpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08863DE68964AB0B15A4C8BE /* Pods_Power_UpUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,12 +53,11 @@
 		3D0EFF916BE067A65EB3998B /* Pods-Power UpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Power UpUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Power UpUITests/Pods-Power UpUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6F08D82C23AB55DDCC2254A0 /* Pods-Power Up.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Power Up.release.xcconfig"; path = "Pods/Target Support Files/Pods-Power Up/Pods-Power Up.release.xcconfig"; sourceTree = "<group>"; };
 		6F7780077B719710EFBF71B2 /* Pods_Power_Up.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Power_Up.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A07498A1E37DAAD005F1F57 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
+		9A13F3CE1E6734910020259F /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
 		9A23875B1E35910C00909DCF /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		9A23875D1E35948800909DCF /* ArticleDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDownloader.swift; sourceTree = "<group>"; };
-		9A3F9EDE1E385B9F003115B3 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
-		9A3F9EE01E3941E2003115B3 /* ContentViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewControllerTests.swift; sourceTree = "<group>"; };
-		9A3F9EE51E39443B003115B3 /* Effects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
+		9A3F9EDE1E385B9F003115B3 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9A3F9EE51E39443B003115B3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9A44A65F1E34180900FF62E5 /* Power Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Power Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A44A6621E34180900FF62E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A44A6641E34180900FF62E5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +73,11 @@
 		9A44A6871E34180900FF62E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A44A6951E346C0D00FF62E5 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		9A4A8A401E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerPageViewDataSource.swift; sourceTree = "<group>"; };
-		9ADCDF741E37E85B00B2DF96 /* ArticleDownloaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDownloaderTests.swift; sourceTree = "<group>"; };
+		9A8C66DC1E673B3400836FD3 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Pods/../build/Debug-iphoneos/Quick/Quick.framework"; sourceTree = "<group>"; };
+		9A8C66DE1E673B3900836FD3 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Pods/../build/Debug-iphoneos/Nimble/Nimble.framework"; sourceTree = "<group>"; };
+		9AC863161E67534F0093016D /* ArticleDownloaderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDownloaderSpec.swift; sourceTree = "<group>"; };
+		9AC863181E67633E0093016D /* ContentViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewControllerSpec.swift; sourceTree = "<group>"; };
+		9AC8631A1E676AD50093016D /* DetailViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewControllerSpec.swift; sourceTree = "<group>"; };
 		A95CCAADD21F46998EA30466 /* Pods-Power UpUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Power UpUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Power UpUITests/Pods-Power UpUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D07ED3A68893BB2D93C34F01 /* Pods-Power Up.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Power Up.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Power Up/Pods-Power Up.debug.xcconfig"; sourceTree = "<group>"; };
 		F6F73BAF8E166743BE27F1B3 /* Pods_Power_UpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Power_UpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +114,8 @@
 		1B5EBDBBC305324172FBB56A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A8C66DE1E673B3900836FD3 /* Nimble.framework */,
+				9A8C66DC1E673B3400836FD3 /* Quick.framework */,
 				6F7780077B719710EFBF71B2 /* Pods_Power_Up.framework */,
 				F6F73BAF8E166743BE27F1B3 /* Pods_Power_UpTests.framework */,
 				08863DE68964AB0B15A4C8BE /* Pods_Power_UpUITests.framework */,
@@ -134,17 +140,16 @@
 			isa = PBXGroup;
 			children = (
 				9A23875B1E35910C00909DCF /* Article.swift */,
-				9A23875D1E35948800909DCF /* ArticleDownloader.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		9A3F9EE21E394258003115B3 /* Extensions and Methods */ = {
+		9A3F9EE21E394258003115B3 /* Extensions  */ = {
 			isa = PBXGroup;
 			children = (
-				9A3F9EE51E39443B003115B3 /* Effects.swift */,
+				9A3F9EE51E39443B003115B3 /* Extensions.swift */,
 			);
-			name = "Extensions and Methods";
+			name = "Extensions ";
 			sourceTree = "<group>";
 		};
 		9A44A6561E34180900FF62E5 = {
@@ -172,7 +177,8 @@
 		9A44A6611E34180900FF62E5 /* Power Up */ = {
 			isa = PBXGroup;
 			children = (
-				9A3F9EE21E394258003115B3 /* Extensions and Methods */,
+				9AF32F5E1E6727000078DFE3 /* Helper Classes */,
+				9A3F9EE21E394258003115B3 /* Extensions  */,
 				9A23875A1E35907800909DCF /* Models */,
 				9A44A6971E3568BD00FF62E5 /* ViewControllers */,
 				9A44A6621E34180900FF62E5 /* AppDelegate.swift */,
@@ -189,9 +195,10 @@
 			isa = PBXGroup;
 			children = (
 				9A44A67C1E34180900FF62E5 /* Info.plist */,
-				9A07498A1E37DAAD005F1F57 /* MainViewControllerTests.swift */,
-				9ADCDF741E37E85B00B2DF96 /* ArticleDownloaderTests.swift */,
-				9A3F9EE01E3941E2003115B3 /* ContentViewControllerTests.swift */,
+				9A13F3CE1E6734910020259F /* MainViewControllerSpec.swift */,
+				9AC863161E67534F0093016D /* ArticleDownloaderSpec.swift */,
+				9AC863181E67633E0093016D /* ContentViewControllerSpec.swift */,
+				9AC8631A1E676AD50093016D /* DetailViewControllerSpec.swift */,
 			);
 			path = "Power UpTests";
 			sourceTree = "<group>";
@@ -211,9 +218,17 @@
 				9A44A6641E34180900FF62E5 /* MainViewController.swift */,
 				9A4A8A401E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift */,
 				9A44A6951E346C0D00FF62E5 /* ContentViewController.swift */,
-				9A3F9EDE1E385B9F003115B3 /* detailViewController.swift */,
+				9A3F9EDE1E385B9F003115B3 /* DetailViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9AF32F5E1E6727000078DFE3 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9A23875D1E35948800909DCF /* ArticleDownloader.swift */,
+			);
+			name = "Helper Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,8 +522,8 @@
 				9A4A8A411E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift in Sources */,
 				9A44A6651E34180900FF62E5 /* MainViewController.swift in Sources */,
 				9A44A6631E34180900FF62E5 /* AppDelegate.swift in Sources */,
-				9A3F9EE61E39443B003115B3 /* Effects.swift in Sources */,
-				9A3F9EDF1E385B9F003115B3 /* detailViewController.swift in Sources */,
+				9A3F9EE61E39443B003115B3 /* Extensions.swift in Sources */,
+				9A3F9EDF1E385B9F003115B3 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,9 +531,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A07498B1E37DAAD005F1F57 /* MainViewControllerTests.swift in Sources */,
-				9A3F9EE11E3941E2003115B3 /* ContentViewControllerTests.swift in Sources */,
-				9ADCDF751E37E85B00B2DF96 /* ArticleDownloaderTests.swift in Sources */,
+				9AC863171E67534F0093016D /* ArticleDownloaderSpec.swift in Sources */,
+				9A13F3CF1E6734910020259F /* MainViewControllerSpec.swift in Sources */,
+				9AC8631B1E676AD50093016D /* DetailViewControllerSpec.swift in Sources */,
+				9AC863191E67633E0093016D /* ContentViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +678,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D07ED3A68893BB2D93C34F01 /* Pods-Power Up.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = DZV4MYF2U6;
@@ -677,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F08D82C23AB55DDCC2254A0 /* Pods-Power Up.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = DZV4MYF2U6;
@@ -692,9 +710,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 04F2A0B29489CAF904003683 /* Pods-Power UpTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = DZV4MYF2U6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Quick",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Nimble",
+				);
 				INFOPLIST_FILE = "Power UpTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.somnibyte.Power-UpTests";
@@ -708,9 +731,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0092673368BD774DA03E6731 /* Pods-Power UpTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = DZV4MYF2U6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Quick",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Nimble",
+				);
 				INFOPLIST_FILE = "Power UpTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.somnibyte.Power-UpTests";
@@ -724,7 +752,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A95CCAADD21F46998EA30466 /* Pods-Power UpUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = DZV4MYF2U6;
 				INFOPLIST_FILE = "Power UpUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -739,7 +767,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D0EFF916BE067A65EB3998B /* Pods-Power UpUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = DZV4MYF2U6;
 				INFOPLIST_FILE = "Power UpUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
