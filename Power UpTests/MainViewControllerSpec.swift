@@ -61,7 +61,6 @@ class MainViewControllerSpec: QuickSpec {
 
         })
 
-
         it("Should have at most 10 articles readily available.", closure: {
 
             self.articleDownloader.downloadArticles(completion: { success, data in

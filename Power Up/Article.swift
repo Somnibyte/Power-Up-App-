@@ -11,17 +11,23 @@ import UIKit
 
 struct Article {
 
-    var author: String? // Author of the article
+    /// Author of the article
+    var author: String?
 
-    var title: String? // Title of the article
+    /// Title of the article
+    var title: String?
 
-    var description: String? // Description of the article
+    /// Description of the article
+    var description: String?
 
-    var url: URL? // URL of the article
+    /// URL of the article
+    var url: URL?
 
-    var imageUrl: String? // Image url of the article
+    /// Image url of the article
+    var imageUrl: String?
 
-    var image: UIImage? // The image of the article itself
+    /// The image of the article itself
+    var image: UIImage?
 
     init(author: String, title: String, description: String, url: URL, imageUrl: String) {
 

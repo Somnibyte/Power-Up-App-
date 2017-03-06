@@ -11,14 +11,19 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    var pageViewController: UIPageViewController! // The UIPageViewController that will be embedded onto our MainViewController
+    /// The UIPageViewController that will be embedded onto our MainViewController.
+    var pageViewController: UIPageViewController!
 
-    var articles: [Article] = [] // Array that holds the data for the UIPageViewController
+    /// Array that holds the data for the UIPageViewController.
+    var articles: [Article] = []
 
-    var articleDownloader: ArticleDownloader! // An object that downloads articles to fill the 'articles' variable with data
+    /// An object that downloads articles to fill the 'articles' variable with data.
+    var articleDownloader: ArticleDownloader!
 
+    /// UIAlertViewController used to alert user if there is no internet connection available.
     var alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet connection and try again.", preferredStyle: UIAlertControllerStyle.alert)
 
+    /// Boolean to indicate internet connection status.
     var noInternetConnection: Bool = false
 
 

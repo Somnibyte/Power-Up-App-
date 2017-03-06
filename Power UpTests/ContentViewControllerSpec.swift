@@ -14,7 +14,9 @@ import Nimble
 class ContentViewControllerSpec: QuickSpec {
 
     var articleDownloader: ArticleDownloader!
+
     var mainViewController: MainViewController!
+    
     var contentViewController: ContentViewController?
 
     override func spec() {
@@ -35,13 +37,21 @@ class ContentViewControllerSpec: QuickSpec {
 
                 // Setup the initial pageViewController
                 self.mainViewController.pageViewController = self.mainViewController.storyboard?.instantiateViewController(withIdentifier: "pageViewController") as! UIPageViewController
+
                 self.mainViewController.pageViewController.dataSource = self.mainViewController
+
                 let startingViewController = self.mainViewController.viewControllerAtIndex(index: 0) as ContentViewController
+
                 let viewControllers = [startingViewController]
+
                 self.mainViewController.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
+
                 self.mainViewController.pageViewController.view.frame = CGRect(x: 0, y: 0, width: self.mainViewController.view.frame.size.width, height: self.mainViewController.view.frame.size.height - 30)
+
                 self.mainViewController.addChildViewController(self.mainViewController.pageViewController)
+
                 self.mainViewController.view.addSubview(self.mainViewController.pageViewController.view)
+
                 self.mainViewController.pageViewController.didMove(toParentViewController: self.mainViewController.pageViewController)
 
                 self.contentViewController = self.mainViewController.pageViewController.viewControllers?[0] as! ContentViewController
@@ -52,8 +62,6 @@ class ContentViewControllerSpec: QuickSpec {
         }
 
         it("Should exist and the information must be the same as what is provided by the first Article in the MainViewController.", closure: {
-
-
 
                 expect(self.contentViewController).toEventuallyNot(beNil())
                 expect(self.contentViewController?.titleText).toEventually(equal(self.mainViewController.articles[0].title))

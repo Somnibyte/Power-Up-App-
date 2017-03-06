@@ -20,19 +20,26 @@ class ContentViewController: UIViewController {
 
     @IBOutlet var leftWall: UIView!
 
-    var pageIndex: Int? // Index of the current page (pageView). Could be used to tell which article we are reading (ex. Article #1)
+    /// Index of the current page (pageView). Could be used to tell which article we are reading (ex. Article #1)
+    var pageIndex: Int?
 
-    var imageUrl: String? // URL of the image given by MainViewController
+    /// URL of the image given by MainViewController
+    var imageUrl: String?
 
-    var titleText: String? // Title of the article given by MainViewController
+    /// Title of the article given by MainViewController
+    var titleText: String?
 
-    var sourceText: String? // Source of the article given by MainViewController
+    /// Source of the article given by MainViewController
+    var sourceText: String?
 
-    var descriptionText: String? // Description of the article given by MainViewController
+    /// Description of the article given by MainViewController
+    var descriptionText: String?
 
-    var articleUrl: URL? // The URL of the article given by MainViewController
+    /// The URL of the article given by MainViewController
+    var articleUrl: URL?
 
-    let downloader = ImageDownloader() // ImageDownloader Object from AlamofireImage to apply image resizing effects
+    /// ImageDownloader Object from AlamofireImage to apply image resizing effects
+    let downloader = ImageDownloader()
 
     override func viewDidLoad() {
 

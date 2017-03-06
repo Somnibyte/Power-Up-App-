@@ -15,6 +15,7 @@ class DetailViewControllerSpec: QuickSpec {
 
 
     var articleDownloader: ArticleDownloader!
+    
     var mainViewController: MainViewController!
 
     override func spec() {

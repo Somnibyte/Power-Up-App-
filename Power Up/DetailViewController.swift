@@ -21,15 +21,19 @@ class detailViewController: UIViewController {
 
     @IBOutlet var detailDescripLabel: UILabel!
 
-    var image: UIImage? // Image of the article given by ContentViewController
-
-    var detailTitle: String? // Title of the article given by ContentViewController
-
-    var detailDescription: String? // Description of the article given by ContentViewController
-
-    var articleUrl: URL? // URL of the article given by ContentViewController
-
     @IBOutlet var safariButton: UIButton!
+
+    /// Image of the article given by ContentViewController
+    var image: UIImage?
+
+    /// Title of the article given by ContentViewController
+    var detailTitle: String?
+
+    /// Description of the article given by ContentViewController
+    var detailDescription: String?
+
+    /// URL of the article given by ContentViewController
+    var articleUrl: URL?
 
     override func viewDidLayoutSubviews() {
 
@@ -50,7 +54,7 @@ class detailViewController: UIViewController {
 
 
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
 
         super.viewDidAppear(true)

@@ -11,13 +11,13 @@ import Alamofire
 
 final class ArticleDownloader {
 
-    // Source of the API
+    /// Source of the API
     var source: String?
 
-    // Reference to view that the article downloader was instantiated in. This allows for presenting alerts.
+    /// Reference to view that the article downloader was instantiated in. This allows for presenting alerts.
     weak var currentView: UIView!
 
-    // Activity Indicator to display the progress of downloading our articles
+    /// Activity Indicator to display the progress of downloading our articles
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle:
         UIActivityIndicatorViewStyle.whiteLarge)
 
@@ -77,7 +77,7 @@ final class ArticleDownloader {
      - returns: A list of 'Article' Objects.
      */
      func validateJSONData(jsonData: [[String:AnyObject]]) -> [Article] {
-
+        
         var author: String?
 
         var title: String?
