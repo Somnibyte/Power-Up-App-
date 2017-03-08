@@ -25,7 +25,6 @@
 		9A4A8A411E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A8A401E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift */; };
 		9AC863171E67534F0093016D /* ArticleDownloaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC863161E67534F0093016D /* ArticleDownloaderSpec.swift */; };
 		9AC863191E67633E0093016D /* ContentViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC863181E67633E0093016D /* ContentViewControllerSpec.swift */; };
-		9AC8631B1E676AD50093016D /* DetailViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC8631A1E676AD50093016D /* DetailViewControllerSpec.swift */; };
 		9F2B3685DC062D03142ECFD9 /* Pods_Power_UpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08863DE68964AB0B15A4C8BE /* Pods_Power_UpUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +76,6 @@
 		9A8C66DE1E673B3900836FD3 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Pods/../build/Debug-iphoneos/Nimble/Nimble.framework"; sourceTree = "<group>"; };
 		9AC863161E67534F0093016D /* ArticleDownloaderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDownloaderSpec.swift; sourceTree = "<group>"; };
 		9AC863181E67633E0093016D /* ContentViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewControllerSpec.swift; sourceTree = "<group>"; };
-		9AC8631A1E676AD50093016D /* DetailViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewControllerSpec.swift; sourceTree = "<group>"; };
 		A95CCAADD21F46998EA30466 /* Pods-Power UpUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Power UpUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Power UpUITests/Pods-Power UpUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D07ED3A68893BB2D93C34F01 /* Pods-Power Up.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Power Up.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Power Up/Pods-Power Up.debug.xcconfig"; sourceTree = "<group>"; };
 		F6F73BAF8E166743BE27F1B3 /* Pods_Power_UpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Power_UpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,7 +196,6 @@
 				9A13F3CE1E6734910020259F /* MainViewControllerSpec.swift */,
 				9AC863161E67534F0093016D /* ArticleDownloaderSpec.swift */,
 				9AC863181E67633E0093016D /* ContentViewControllerSpec.swift */,
-				9AC8631A1E676AD50093016D /* DetailViewControllerSpec.swift */,
 			);
 			path = "Power UpTests";
 			sourceTree = "<group>";
@@ -533,7 +530,6 @@
 			files = (
 				9AC863171E67534F0093016D /* ArticleDownloaderSpec.swift in Sources */,
 				9A13F3CF1E6734910020259F /* MainViewControllerSpec.swift in Sources */,
-				9AC8631B1E676AD50093016D /* DetailViewControllerSpec.swift in Sources */,
 				9AC863191E67633E0093016D /* ContentViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

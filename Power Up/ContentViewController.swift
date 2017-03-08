@@ -124,7 +124,7 @@ class ContentViewController: UIViewController {
         // Segue for detailViewController
         if segue.identifier == "showDetailView" {
 
-            let detailView = segue.destination as! detailViewController
+            let detailView = segue.destination as! DetailViewController
 
             detailView.image = self.articleImage.image
 

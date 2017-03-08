@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class detailViewController: UIViewController {
+class DetailViewController: UIViewController {
 
     @IBOutlet var titleView: UIView!
 
