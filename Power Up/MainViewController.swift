@@ -6,25 +6,28 @@
 //  Copyright © 2017 Guled. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 
+/// A Container View Controller that contains a UIPageViewController and each page is represented as a ContentViewController.
 class MainViewController: UIViewController {
 
     /// The UIPageViewController that will be embedded onto our MainViewController.
     var pageViewController: UIPageViewController!
-
-    /// Array that holds the data for the UIPageViewController.
-    var articles: [Article] = []
-
-    /// An object that downloads articles to fill the 'articles' variable with data.
-    var articleDownloader: ArticleDownloader!
 
     /// UIAlertViewController used to alert user if there is no internet connection available.
     var alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet connection and try again.", preferredStyle: UIAlertControllerStyle.alert)
 
     /// Boolean to indicate internet connection status.
     var noInternetConnection: Bool = false
+
+    /// The ViewModel for the MainViewController View Controller 
+    var mainViewModel: MainViewModel!
+
+    /// Activity Indicator to display the progress of downloading our articles
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle:
+        UIActivityIndicatorViewStyle.whiteLarge)
 
 
     override func viewDidLoad() {
@@ -48,45 +51,84 @@ class MainViewController: UIViewController {
     }
 
 
+    public func startDownloadProcess(){
+
+        ArticleService().get { [weak self] (response, data) in
+
+            if response  {
+                // Obtain the downloaded data
+                self?.mainViewModel = MainViewModel(withArticles: data)
+
+                // Setup the initial pageViewController
+                self?.pageViewController = self?.storyboard?.instantiateViewController(withIdentifier: "pageViewController") as! UIPageViewController
+
+                self?.pageViewController.dataSource = self
+
+                // Create the first ContentViewController
+                let startViewController = (self?.viewControllerAtIndex(index: 0))! as ContentViewController
+
+                let viewControllers = [startViewController]
+
+                self?.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
+
+                // Move the pageViewController slightly from the bottom of the screen
+                self?.pageViewController.view.frame = CGRect(x: 0, y: 0, width: (self?.view.frame.size.width)!, height: (self?.view.frame.size.height)! - 30)
+
+
+                // Append the pageViewController to our MainViewController
+                self?.addChildViewController((self?.pageViewController)!)
+                
+                self?.view.addSubview((self?.pageViewController.view)!)
+                
+                self?.pageViewController.didMove(toParentViewController: self)
+
+                self?.hideActivityIndicatory()
+
+            }else{
+
+                self?.hideActivityIndicatory()
+
+                // If there are no articles, send out an alert to refresh the app.
+                self?.noInternetConnection = true
+
+                self?.present((self?.alert)!, animated: true, completion: nil)
+
+                }
+
+            }
+        }
+
     /**
-     The startDownloadProcess method initiates downloading articles from the web.
+     The showActivityIndicator method displays a UIActivityIndicatorView on the view specified by the 'currentView' variable.
      */
-    func startDownloadProcess() {
+    func showActivityIndicator() {
 
-        // Instantiate the ArticleDownloader class in order to start the donwloading process
-        articleDownloader = ArticleDownloader(view: self.view, source:"https://newsapi.org/v1/articles?source=polygon&sortBy=top&apiKey=9cd682bad8e8419780f3d08939fd9df7")
+        // Create the activityIndicatorView in the background
+        DispatchQueue.main.async {
 
-        articleDownloader.downloadArticles(completion: { success, data in
+            self.activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0)
 
-            // Obtain the downloaded data
-            self.articles = data
+            self.activityIndicator.center = CGPoint(x:self.view.bounds.size.width / 2, y:self.view.bounds.size.height / 2)
 
-            // Setup the initial pageViewController
-            self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "pageViewController") as! UIPageViewController
+            self.view.addSubview(self.activityIndicator)
 
-            self.pageViewController.dataSource = self
-
-            // Create the first ContentViewController
-            let startViewController = self.viewControllerAtIndex(index: 0) as ContentViewController
-
-            let viewControllers = [startViewController]
-
-            self.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
-
-            // Move the pageViewController slightly from the bottom of the screen
-            self.pageViewController.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height - 30)
-
-
-            // Append the pageViewController to our MainViewController
-            self.addChildViewController(self.pageViewController)
-
-            self.view.addSubview(self.pageViewController.view)
-
-            self.pageViewController.didMove(toParentViewController: self)
-
-        })
-
+            self.activityIndicator.startAnimating()
+            
+        }
     }
+
+    /**
+     The hideActivityIndicatory method hides the UIActivityIndicatorView created by the showActivityIndictor method.
+     */
+    func hideActivityIndicatory() {
+
+        DispatchQueue.main.async {
+
+            self.activityIndicator.stopAnimating()
+        }
+        
+    }
+    
 
 
 

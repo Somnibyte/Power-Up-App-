@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-
+/// View Controller that represents a page within a UIPageViewController.
 class ContentViewController: UIViewController {
 
     @IBOutlet var articleImage: UIImageView!

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-// UIPageViewControllerDataSource Methods for MainViewController
+// UIPageViewControllerDataSource Methods for MainViewController. 
 extension MainViewController: UIPageViewControllerDataSource {
 
 
@@ -23,11 +23,7 @@ extension MainViewController: UIPageViewControllerDataSource {
     func viewControllerAtIndex(index: Int) -> ContentViewController {
 
         // If there are no articles, send out an alert to refresh the app.
-        if self.articles.count == 0 || index >= self.articles.count {
-
-            noInternetConnection = true
-
-            self.present(alert, animated: true, completion: nil)
+        if mainViewModel.articles.count == 0 || index >= mainViewModel.articles.count {
 
             return ContentViewController()
         }
@@ -37,15 +33,15 @@ extension MainViewController: UIPageViewControllerDataSource {
         // Add the contents of each article to the contentViewController
         contentViewController.pageIndex = index
 
-        contentViewController.imageUrl = articles[index].imageUrl
+        contentViewController.imageUrl =  mainViewModel.articles[index].imageUrl
 
-        contentViewController.titleText = articles[index].title
+        contentViewController.titleText =  mainViewModel.articles[index].title
 
-        contentViewController.sourceText = "Polygon - Top Posts"
+        contentViewController.sourceText = mainViewModel.getSourceText()
 
-        contentViewController.descriptionText = articles[index].description
+        contentViewController.descriptionText =  mainViewModel.articles[index].description
 
-        contentViewController.articleUrl = articles[index].url
+        contentViewController.articleUrl =  mainViewModel.articles[index].url
 
         return contentViewController
     }
@@ -87,7 +83,7 @@ extension MainViewController: UIPageViewControllerDataSource {
         index += 1
 
         // If the index is at the last article, do not return anything as there is no other page after the last page.
-        if index == self.articles.count {
+        if index == self.mainViewModel.articles.count {
 
             return nil
 
@@ -98,7 +94,7 @@ extension MainViewController: UIPageViewControllerDataSource {
 
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
 
-        return self.articles.count
+        return self.mainViewModel.articles.count
 
     }
 

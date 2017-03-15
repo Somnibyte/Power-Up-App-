@@ -11,13 +11,12 @@ import Quick
 import Nimble
 @testable import Power_Up
 
+
 class ContentViewControllerSpec: QuickSpec {
 
-    var articleDownloader: ArticleDownloader!
-
     var mainViewController: MainViewController!
-    
-    var contentViewController: ContentViewController?
+
+    var mainViewControllerPageViewController: UIPageViewController?
 
     override func spec() {
 
@@ -26,50 +25,82 @@ class ContentViewControllerSpec: QuickSpec {
             // Setup MainViewController
             self.mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
 
-            // Setup our ArticleDownloader class
-            self.articleDownloader = ArticleDownloader(view: self.mainViewController.view, source: "https://newsapi.org/v1/articles?source=polygon&sortBy=top&apiKey=9cd682bad8e8419780f3d08939fd9df7")
+
+            ArticleService().get { [weak self] (response, data) in
+
+                if response  {
+                    // Obtain the downloaded data
+                    self?.mainViewController.mainViewModel = MainViewModel(withArticles: data)
+
+                    // Setup the initial pageViewController
+                    self?.mainViewController.pageViewController = self?.mainViewController.storyboard?.instantiateViewController(withIdentifier: "pageViewController") as! UIPageViewController
+
+                    self?.mainViewController.pageViewController.dataSource = self?.mainViewController
+
+                    // Create the first ContentViewController
+                    let startViewController = (self?.mainViewController.viewControllerAtIndex(index: 0))! as ContentViewController
+
+                    let viewControllers = [startViewController]
+
+                    self?.mainViewController.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
+
+                    // Move the pageViewController slightly from the bottom of the screen
+                    self?.mainViewController.pageViewController.view.frame = CGRect(x: 0, y: 0, width: (self?.mainViewController.view.frame.size.width)!, height: (self?.mainViewController.view.frame.size.height)! - 30)
 
 
-            self.articleDownloader.downloadArticles(completion: { success, data in
+                    // Append the pageViewController to our MainViewController
+                    self?.mainViewController.addChildViewController((self?.mainViewController.pageViewController)!)
 
-                // Obtain the downloaded data
-                self.mainViewController.articles = data
+                    self?.mainViewController.view.addSubview((self?.mainViewController.pageViewController.view)!)
 
-                // Setup the initial pageViewController
-                self.mainViewController.pageViewController = self.mainViewController.storyboard?.instantiateViewController(withIdentifier: "pageViewController") as! UIPageViewController
+                    self?.mainViewController.pageViewController.didMove(toParentViewController: self?.mainViewController)
 
-                self.mainViewController.pageViewController.dataSource = self.mainViewController
+                    self?.mainViewController.hideActivityIndicatory()
 
-                let startingViewController = self.mainViewController.viewControllerAtIndex(index: 0) as ContentViewController
+                    self?.mainViewControllerPageViewController = self?.mainViewController.pageViewController
 
-                let viewControllers = [startingViewController]
+                }else{
 
-                self.mainViewController.pageViewController.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
+                    self?.mainViewController.hideActivityIndicatory()
 
-                self.mainViewController.pageViewController.view.frame = CGRect(x: 0, y: 0, width: self.mainViewController.view.frame.size.width, height: self.mainViewController.view.frame.size.height - 30)
-
-                self.mainViewController.addChildViewController(self.mainViewController.pageViewController)
-
-                self.mainViewController.view.addSubview(self.mainViewController.pageViewController.view)
-
-                self.mainViewController.pageViewController.didMove(toParentViewController: self.mainViewController.pageViewController)
-
-                self.contentViewController = self.mainViewController.pageViewController.viewControllers?[0] as! ContentViewController
-
-            })
+                    // If there are no articles, send out an alert to refresh the app.
+                    self?.mainViewController.noInternetConnection = true
+                    
+                    self?.mainViewController.present((self?.mainViewController.alert)!, animated: true, completion: nil)
+                    
+                }
+                
+            }
 
 
         }
 
-        it("Should exist and the information must be the same as what is provided by the first Article in the MainViewController.", closure: {
 
-                expect(self.contentViewController).toEventuallyNot(beNil())
-                expect(self.contentViewController?.titleText).toEventually(equal(self.mainViewController.articles[0].title))
-                expect(self.contentViewController?.articleUrl).toEventually(equal(self.mainViewController.articles[0].url))
-                expect(self.contentViewController?.descriptionText).toEventually(equal(self.mainViewController.articles[0].description))
-                expect(self.contentViewController?.imageUrl).toEventually(equal(self.mainViewController.articles[0].imageUrl))
-        })
+        it("Should exist and the information must be the same as what is provided by the first Article in the MainViewController.") {
+
+
+            expect(self.mainViewControllerPageViewController).toEventuallyNot(beNil())
+
+            expect(self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).toEventuallyNot(beNil())
+
+            expect( (self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).titleText).toEventually(equal(self.mainViewController.mainViewModel.articles[0].title))
+
+            expect((self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).articleUrl).toEventually(equal(self.mainViewController.mainViewModel.articles[0].url))
+
+            expect((self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).descriptionText).toEventually(equal(self.mainViewController.mainViewModel.articles[0].description))
+
+            expect((self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).imageUrl).toEventually(equal(self.mainViewController.mainViewModel.articles[0].imageUrl))
+
+        }
+
+
+        it("Should have an image downloaded from an Article imageURL") {
+
+             expect( (self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).articleImage).toEventuallyNot(beNil())
+        }
 
 
     }
 }
+
+

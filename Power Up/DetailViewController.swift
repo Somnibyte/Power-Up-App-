@@ -9,6 +9,7 @@
 import UIKit
 import AlamofireImage
 
+/// View Controller that displays the contents of a page (ContentViewController) from a UIPageController (The UIPageController from our container view (MainViewController). 
 class DetailViewController: UIViewController {
 
     @IBOutlet var titleView: UIView!
