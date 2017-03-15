@@ -211,7 +211,7 @@ class DetailViewController: UIViewController {
      */
     func addShadowTo(view: UIView) {
 
-        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowColor = AppConfiguration.black().cgColor
 
         view.layer.shadowOffset = CGSize.zero
 

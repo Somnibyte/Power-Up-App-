@@ -86,11 +86,11 @@ class MainViewController: UIViewController {
                 
                 self?.pageViewController.didMove(toParentViewController: self)
 
-                self?.hideActivityIndicatory()
+                self?.hideActivityIndicator()
 
             }else{
 
-                self?.hideActivityIndicatory()
+                self?.hideActivityIndicator()
 
                 // If there are no articles, send out an alert to refresh the app.
                 self?.noInternetConnection = true
@@ -103,8 +103,7 @@ class MainViewController: UIViewController {
         }
 
     /**
-     The showActivityIndicator method displays a UIActivityIndicatorView on the view specified by the 'currentView' variable.
-     */
+     The showActivityIndicator method displays a UIActivityIndicatorView. */
     func showActivityIndicator() {
 
         // Create the activityIndicatorView in the background
@@ -122,9 +121,9 @@ class MainViewController: UIViewController {
     }
 
     /**
-     The hideActivityIndicatory method hides the UIActivityIndicatorView created by the showActivityIndictor method.
+     The hideActivityIndicator method hides the UIActivityIndicatorView created by the showActivityIndictor method.
      */
-    func hideActivityIndicatory() {
+    func hideActivityIndicator() {
 
         DispatchQueue.main.async {
 

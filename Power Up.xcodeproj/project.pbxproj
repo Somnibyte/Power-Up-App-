@@ -25,6 +25,7 @@
 		9A44A6861E34180900FF62E5 /* Power_UpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A44A6851E34180900FF62E5 /* Power_UpUITests.swift */; };
 		9A44A6961E346C0D00FF62E5 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A44A6951E346C0D00FF62E5 /* ContentViewController.swift */; };
 		9A4A8A411E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4A8A401E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift */; };
+		9AAEDFBB1E79E2940003C701 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAEDFBA1E79E2940003C701 /* AppConfiguration.swift */; };
 		9AC863171E67534F0093016D /* ArticleServiceAndGetterProtocolSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC863161E67534F0093016D /* ArticleServiceAndGetterProtocolSpec.swift */; };
 		9AC863191E67633E0093016D /* ContentViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC863181E67633E0093016D /* ContentViewControllerSpec.swift */; };
 		9F2B3685DC062D03142ECFD9 /* Pods_Power_UpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08863DE68964AB0B15A4C8BE /* Pods_Power_UpUITests.framework */; };
@@ -78,6 +79,7 @@
 		9A4A8A401E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerPageViewDataSource.swift; sourceTree = "<group>"; };
 		9A8C66DC1E673B3400836FD3 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Pods/../build/Debug-iphoneos/Quick/Quick.framework"; sourceTree = "<group>"; };
 		9A8C66DE1E673B3900836FD3 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Pods/../build/Debug-iphoneos/Nimble/Nimble.framework"; sourceTree = "<group>"; };
+		9AAEDFBA1E79E2940003C701 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		9AC863161E67534F0093016D /* ArticleServiceAndGetterProtocolSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleServiceAndGetterProtocolSpec.swift; sourceTree = "<group>"; };
 		9AC863181E67633E0093016D /* ContentViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewControllerSpec.swift; sourceTree = "<group>"; };
 		A95CCAADD21F46998EA30466 /* Pods-Power UpUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Power UpUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Power UpUITests/Pods-Power UpUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		9A44A6611E34180900FF62E5 /* Power Up */ = {
 			isa = PBXGroup;
 			children = (
+				9AAEDFB91E79E2880003C701 /* Configuration */,
 				9AF32F5E1E6727000078DFE3 /* Networking */,
 				9A3F9EE21E394258003115B3 /* Extensions  */,
 				9A23875A1E35907800909DCF /* Models */,
@@ -231,6 +234,14 @@
 				9A3F9EDE1E385B9F003115B3 /* DetailViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9AAEDFB91E79E2880003C701 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				9AAEDFBA1E79E2940003C701 /* AppConfiguration.swift */,
+			);
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 		9AF32F5E1E6727000078DFE3 /* Networking */ = {
@@ -532,6 +543,7 @@
 				9A14851A1E7987D5002CB411 /* Gettable.swift in Sources */,
 				9A23875C1E35910C00909DCF /* Article.swift in Sources */,
 				9A4A8A411E37FAC900E44FCF /* MainViewControllerPageViewDataSource.swift in Sources */,
+				9AAEDFBB1E79E2940003C701 /* AppConfiguration.swift in Sources */,
 				9A44A6651E34180900FF62E5 /* MainViewController.swift in Sources */,
 				9A44A6631E34180900FF62E5 /* AppDelegate.swift in Sources */,
 				9A3F9EE61E39443B003115B3 /* Extensions.swift in Sources */,

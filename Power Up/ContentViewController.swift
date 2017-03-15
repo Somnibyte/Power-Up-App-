@@ -41,6 +41,11 @@ class ContentViewController: UIViewController {
     /// ImageDownloader Object from AlamofireImage to apply image resizing effects
     let downloader = ImageDownloader()
 
+    /// Activity Indicator to display the progress of downloading our articles
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle:
+        UIActivityIndicatorViewStyle.whiteLarge)
+
+
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -155,6 +160,7 @@ class ContentViewController: UIViewController {
     func downloadImage() {
 
         let urlRequest = URLRequest(url: URL(string: self.imageUrl!)!)
+        showActivityIndicator()
 
         downloader.download(urlRequest) { response in
 
@@ -167,6 +173,40 @@ class ContentViewController: UIViewController {
                 self.articleImage.image = aspectScaledToFillImage.imageWithDarkGradient()
             }
         }
+
+        hideActivityIndicator()
     }
+
+
+    /**
+     The showActivityIndicator method displays a UIActivityIndicatorView. */
+    func showActivityIndicator() {
+
+        // Create the activityIndicatorView in the background
+        DispatchQueue.main.async {
+
+            self.activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0)
+
+            self.activityIndicator.center = CGPoint(x:self.view.bounds.size.width / 2, y:self.view.bounds.size.height / 2)
+
+            self.view.addSubview(self.activityIndicator)
+
+            self.activityIndicator.startAnimating()
+
+        }
+    }
+
+    /**
+     The hideActivityIndicator method hides the UIActivityIndicatorView created by the showActivityIndictor method.
+     */
+    func hideActivityIndicator() {
+
+        DispatchQueue.main.async {
+
+            self.activityIndicator.stopAnimating()
+        }
+        
+    }
+    
 
  }

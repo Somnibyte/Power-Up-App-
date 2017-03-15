@@ -21,14 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setting Up PageController Settings
         let mainPageController = UIPageControl.appearance()
 
-        mainPageController.pageIndicatorTintColor = UIColor.lightGray
+        mainPageController.pageIndicatorTintColor = AppConfiguration.pageIndicatorTintColor
 
-        mainPageController.currentPageIndicatorTintColor = UIColor.white
+        mainPageController.currentPageIndicatorTintColor = AppConfiguration.currentPageIndicatorTintColor
 
-        mainPageController.backgroundColor = UIColor.clear
+        mainPageController.backgroundColor = AppConfiguration.uiPageControlBackgroundColor
 
         // Hide the status bar
-        UIApplication.shared.isStatusBarHidden = true
+        UIApplication.shared.isStatusBarHidden = AppConfiguration.statusBarRemainsHidden
 
         return true
     }
