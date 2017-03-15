@@ -6,8 +6,11 @@
 //  Copyright © 2017 Somnibyte. All rights reserved.
 //
 
+
+/// ViewModel for the MainViewController class.
 class MainViewModel {
 
+    /// List of Article Model
     let articles: [Article]
 
     init(withArticles articles:[Article]){

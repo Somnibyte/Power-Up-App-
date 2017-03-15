@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Protocol that defines method to extract JSON data from Polygon
 protocol Gettable {
 
     func get(completionHandler:  @escaping (Bool, [Article]) -> ())
