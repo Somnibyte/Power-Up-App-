@@ -51,6 +51,9 @@ class MainViewController: UIViewController {
     }
 
 
+
+    // MARK: - Controller Methods 
+    
     /** 
      The startDownloadProcess method downloads articles from Polygon, converts the data into an Article object and stores it into the mainViewModel ViewModel. The method also instantiates a UIPageViewController in order to embed it into the MainViewController (which is a container for the UIPageViewController). 
      

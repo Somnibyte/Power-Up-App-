@@ -116,6 +116,9 @@ class ContentViewController: UIViewController {
         }
     }
 
+
+    // MARK: - CONTROLLER METHODS 
+
     /**
      The didTapView method initiates the transition to the detailViewController.
      */

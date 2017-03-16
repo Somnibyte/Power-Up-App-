@@ -142,6 +142,9 @@ class DetailViewController: UIViewController {
     }
 
 
+
+    // MARK: - CONTROLLER METHODS 
+    
     // When the 'Open in Safari' button is tapped, take the user to the URL from the current
     // article.
     @IBAction func safariButtonTapped(_ sender: Any) {
