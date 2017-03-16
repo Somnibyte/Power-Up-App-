@@ -55,13 +55,13 @@ class ContentViewControllerSpec: QuickSpec {
 
                     self?.mainViewController.pageViewController.didMove(toParentViewController: self?.mainViewController)
 
-                    self?.mainViewController.hideActivityIndicatory()
+                    self?.mainViewController.hideActivityIndicator()
 
                     self?.mainViewControllerPageViewController = self?.mainViewController.pageViewController
 
                 }else{
 
-                    self?.mainViewController.hideActivityIndicatory()
+                    self?.mainViewController.hideActivityIndicator()
 
                     // If there are no articles, send out an alert to refresh the app.
                     self?.mainViewController.noInternetConnection = true

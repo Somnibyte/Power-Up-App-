@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+/// Configurations for the Power Up app
 class AppConfiguration {
 
     /// Tint color configuration for a page indicator of a UIPageControl
