@@ -11,6 +11,12 @@ import Foundation
 /// Protocol that defines method to extract JSON data from Polygon
 protocol Gettable {
 
+    /**
+     The get method handles extracting articles from Polygon. 
+     
+     - parameter completionHandler: A closure used to capture errors and, if successful, a list of articles from Polygon. 
+
+    */
     func get(completionHandler:  @escaping (Bool, [Article]) -> ())
 }
 
