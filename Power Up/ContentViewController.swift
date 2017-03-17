@@ -117,7 +117,7 @@ class ContentViewController: UIViewController {
     }
 
 
-    // MARK: - CONTROLLER METHODS 
+    // MARK: - CONTROLLER METHODS
 
     /**
      The didTapView method initiates the transition to the detailViewController.
@@ -208,8 +208,8 @@ class ContentViewController: UIViewController {
 
             self.activityIndicator.stopAnimating()
         }
-        
+
     }
-    
+
 
  }

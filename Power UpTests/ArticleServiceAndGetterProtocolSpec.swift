@@ -13,7 +13,7 @@ import Nimble
 
 class ArticleServiceAndGetterProtocolSpec: QuickSpec {
 
-    
+
     var mainViewController: MainViewController!
 
     let fakeArticleService: ArticleService = ArticleService()
@@ -95,4 +95,3 @@ class ArticleServiceAndGetterProtocolSpec: QuickSpec {
     }
 
 }
-

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-// UIPageViewControllerDataSource Methods for MainViewController. 
+// UIPageViewControllerDataSource Methods for MainViewController.
 extension MainViewController: UIPageViewControllerDataSource {
 
 

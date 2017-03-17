@@ -19,15 +19,17 @@ class AppConfiguration {
     /// Tint color configuration for a current page indicator of a UIPageControl
     static let currentPageIndicatorTintColor: UIColor = UIColor.white
 
-    /// Background color for UIPageControl 
+    /// Background color for UIPageControl
     static let uiPageControlBackgroundColor: UIColor = UIColor.clear
 
     /// Indicates whether the status bar will be hidden or not
     static let statusBarRemainsHidden: Bool = false
 
-    /// Customizable black color configuration 
+    /// Customizable black color configuration
     class func black(_ alpha: CGFloat = 1) -> UIColor {
+
         return UIColor.black.withAlphaComponent(alpha)
+
     }
 
 }

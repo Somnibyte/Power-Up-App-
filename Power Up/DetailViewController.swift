@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-/// View Controller that displays the contents of a page (ContentViewController) from a UIPageController (The UIPageController from our container view (MainViewController). 
+/// View Controller that displays the contents of a page (ContentViewController) from a UIPageController (The UIPageController from our container view (MainViewController).
 class DetailViewController: UIViewController {
 
     @IBOutlet var titleView: UIView!
@@ -55,7 +55,7 @@ class DetailViewController: UIViewController {
 
 
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
 
         super.viewDidAppear(true)
@@ -143,8 +143,8 @@ class DetailViewController: UIViewController {
 
 
 
-    // MARK: - CONTROLLER METHODS 
-    
+    // MARK: - CONTROLLER METHODS
+
     // When the 'Open in Safari' button is tapped, take the user to the URL from the current
     // article.
     @IBAction func safariButtonTapped(_ sender: Any) {

@@ -13,7 +13,7 @@ class MainViewModel {
     /// List of Article Model
     let articles: [Article]
 
-    init(withArticles articles:[Article]){
+    init(withArticles articles: [Article]) {
 
         self.articles = articles
     }
@@ -26,7 +26,9 @@ class MainViewModel {
 
     */
     func getSourceText() -> String {
+
         return "Polygon - Top Posts"
+
     }
 
 }

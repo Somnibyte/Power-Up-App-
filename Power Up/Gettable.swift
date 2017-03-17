@@ -12,9 +12,9 @@ import Foundation
 protocol Gettable {
 
     /**
-     The get method handles extracting articles from Polygon. 
-     
-     - parameter completionHandler: A closure used to capture errors and, if successful, a list of articles from Polygon. 
+     The get method handles extracting articles from Polygon.
+
+     - parameter completionHandler: A closure used to capture errors and, if successful, a list of articles from Polygon.
 
     */
     func get(completionHandler:  @escaping (Bool, [Article]) -> ())
@@ -100,13 +100,13 @@ extension Gettable {
 
             // Create a new article object from the available data
             let newArticle = Article(author: author!, title: title!, description: description!, url: articleUrl!, imageUrl: articleImageUrl!)
-            
+
             // Add the article to our articles list
             articles.append(newArticle)
-            
+
         }
-        
+
         return articles
-        
+
     }
 }

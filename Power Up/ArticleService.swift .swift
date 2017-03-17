@@ -7,7 +7,7 @@
 //
 import Alamofire
 
-/// Service for Article extraction. 
+/// Service for Article extraction.
 struct ArticleService: Gettable {
 
     func get(completionHandler: @escaping (Bool, [Article]) -> ()) {
@@ -31,9 +31,9 @@ struct ArticleService: Gettable {
 
                 }
             case .failure( _):
-                
+
                 completionHandler(false, [])
-            
+
             }
         }
     }

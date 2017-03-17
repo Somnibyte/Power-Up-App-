@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
     /// Boolean to indicate internet connection status.
     var noInternetConnection: Bool = false
 
-    /// The ViewModel for the MainViewController View Controller 
+    /// The ViewModel for the MainViewController View Controller
     var mainViewModel: MainViewModel!
 
     /// Activity Indicator to display the progress of downloading our articles
@@ -52,17 +52,17 @@ class MainViewController: UIViewController {
 
 
 
-    // MARK: - Controller Methods 
-    
-    /** 
-     The startDownloadProcess method downloads articles from Polygon, converts the data into an Article object and stores it into the mainViewModel ViewModel. The method also instantiates a UIPageViewController in order to embed it into the MainViewController (which is a container for the UIPageViewController). 
-     
+    // MARK: - Controller Methods
+
+    /**
+     The startDownloadProcess method downloads articles from Polygon, converts the data into an Article object and stores it into the mainViewModel ViewModel. The method also instantiates a UIPageViewController in order to embed it into the MainViewController (which is a container for the UIPageViewController).
+
     */
-    public func startDownloadProcess(){
+    public func startDownloadProcess() {
 
         ArticleService().get { [weak self] (response, data) in
 
-            if response  {
+            if response {
                 // Obtain the downloaded data
                 self?.mainViewModel = MainViewModel(withArticles: data)
 
@@ -84,14 +84,14 @@ class MainViewController: UIViewController {
 
                 // Append the pageViewController to our MainViewController
                 self?.addChildViewController((self?.pageViewController)!)
-                
+
                 self?.view.addSubview((self?.pageViewController.view)!)
-                
+
                 self?.pageViewController.didMove(toParentViewController: self)
 
                 self?.hideActivityIndicator()
 
-            }else{
+            } else {
 
                 self?.hideActivityIndicator()
 
@@ -119,7 +119,7 @@ class MainViewController: UIViewController {
             self.view.addSubview(self.activityIndicator)
 
             self.activityIndicator.startAnimating()
-            
+
         }
     }
 
@@ -132,9 +132,9 @@ class MainViewController: UIViewController {
 
             self.activityIndicator.stopAnimating()
         }
-        
+
     }
-    
+
 
 
 

@@ -28,7 +28,7 @@ class ContentViewControllerSpec: QuickSpec {
 
             ArticleService().get { [weak self] (response, data) in
 
-                if response  {
+                if response {
                     // Obtain the downloaded data
                     self?.mainViewController.mainViewModel = MainViewModel(withArticles: data)
 
@@ -59,17 +59,17 @@ class ContentViewControllerSpec: QuickSpec {
 
                     self?.mainViewControllerPageViewController = self?.mainViewController.pageViewController
 
-                }else{
+                } else {
 
                     self?.mainViewController.hideActivityIndicator()
 
                     // If there are no articles, send out an alert to refresh the app.
                     self?.mainViewController.noInternetConnection = true
-                    
+
                     self?.mainViewController.present((self?.mainViewController.alert)!, animated: true, completion: nil)
-                    
+
                 }
-                
+
             }
 
 
@@ -102,5 +102,3 @@ class ContentViewControllerSpec: QuickSpec {
 
     }
 }
-
-
