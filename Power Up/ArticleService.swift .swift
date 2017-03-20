@@ -10,10 +10,10 @@ import Alamofire
 /// Service for Article extraction.
 struct ArticleService: Gettable {
 
-    func get(completionHandler: @escaping (Bool, [Article]) -> ()) {
+    func get(completionHandler: @escaping (Bool, [ArticleViewModel]) -> ()) {
 
         // Array holding our 'Article' objects
-        var articles: [Article] = []
+        var articles: [ArticleViewModel] = []
 
         // Make a request to the NewsAPI
         Alamofire.request("https://newsapi.org/v1/articles?source=polygon&sortBy=top&apiKey=9cd682bad8e8419780f3d08939fd9df7").validate().responseJSON { response in

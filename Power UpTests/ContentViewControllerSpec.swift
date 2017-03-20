@@ -30,7 +30,7 @@ class ContentViewControllerSpec: QuickSpec {
 
                 if response {
                     // Obtain the downloaded data
-                    self?.mainViewController.mainViewModel = MainViewModel(withArticles: data)
+                    self?.mainViewController.articles = data
 
                     // Setup the initial pageViewController
                     self?.mainViewController.pageViewController = self?.mainViewController.storyboard?.instantiateViewController(withIdentifier: "pageViewController") as! UIPageViewController
@@ -83,13 +83,13 @@ class ContentViewControllerSpec: QuickSpec {
 
             expect(self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).toEventuallyNot(beNil())
 
-            expect( (self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).titleText).toEventually(equal(self.mainViewController.mainViewModel.articles[0].title))
+            expect( (self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).articleViewModel?.titleText).toEventually(equal(self.mainViewController.articles[0].titleText))
 
-            expect((self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).articleUrl).toEventually(equal(self.mainViewController.mainViewModel.articles[0].url))
+            expect((self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).articleViewModel?.articleUrl).toEventually(equal(self.mainViewController.articles[0].articleUrl))
 
-            expect((self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).descriptionText).toEventually(equal(self.mainViewController.mainViewModel.articles[0].description))
+            expect((self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).articleViewModel?.descriptionText).toEventually(equal(self.mainViewController.articles[0].descriptionText))
 
-            expect((self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).imageUrl).toEventually(equal(self.mainViewController.mainViewModel.articles[0].imageUrl))
+            expect((self.mainViewControllerPageViewController?.viewControllers?[0] as! ContentViewController).articleViewModel?.imageURL).toEventually(equal(self.mainViewController.articles[0].imageURL))
 
         }
 

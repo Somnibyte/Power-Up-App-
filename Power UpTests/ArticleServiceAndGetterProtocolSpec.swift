@@ -46,7 +46,7 @@ class ArticleServiceAndGetterProtocolSpec: QuickSpec {
             let articles = self.fakeArticleService.validateJSONData(jsonData: dummyData)
 
             expect(articles).toNot(beEmpty())
-            expect(articles[0].author).to(equal("Anonymous"))
+            expect(articles[0].authorText).to(equal("Written by Anonymous"))
         })
 
         it("[validateJSONData method] Should replace the title with \"Uknown\" if not title is given.", closure: {
@@ -57,7 +57,7 @@ class ArticleServiceAndGetterProtocolSpec: QuickSpec {
             let articles = self.fakeArticleService.validateJSONData(jsonData: dummyData)
 
             expect(articles).toNot(beEmpty())
-            expect(articles[0].title).to(equal("UnKnown"))
+            expect(articles[0].titleText).to(equal("UnKnown"))
         })
 
         it("[validateJSONData method] Should replace the description with \" \" if not description is given.", closure: {
@@ -68,7 +68,7 @@ class ArticleServiceAndGetterProtocolSpec: QuickSpec {
             let articles = self.fakeArticleService.validateJSONData(jsonData: dummyData)
 
             expect(articles).toNot(beEmpty())
-            expect(articles[0].description).to(equal(""))
+            expect(articles[0].descriptionText).to(equal(""))
         })
 
         it("[validateJSONData method] Should disregard the article if no URL is given. ", closure: {
@@ -90,7 +90,7 @@ class ArticleServiceAndGetterProtocolSpec: QuickSpec {
             let articles = self.fakeArticleService.validateJSONData(jsonData: dummyData)
 
             expect(articles).toNot(beEmpty())
-            expect(articles[0].imageUrl).to(equal("noimage"))
+            expect(articles[0].imageURL).to(equal("noimage"))
         })
     }
 

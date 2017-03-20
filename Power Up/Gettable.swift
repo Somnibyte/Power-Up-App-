@@ -17,7 +17,7 @@ protocol Gettable {
      - parameter completionHandler: A closure used to capture errors and, if successful, a list of articles from Polygon.
 
     */
-    func get(completionHandler:  @escaping (Bool, [Article]) -> ())
+    func get(completionHandler:  @escaping (Bool, [ArticleViewModel]) -> ())
 }
 
 extension Gettable {
@@ -27,7 +27,7 @@ extension Gettable {
      - parameter jsonData: Data obtained from Alamofire in JSON format.
      - returns: A list of 'Article' Objects.
      */
-    func validateJSONData(jsonData: [[String:AnyObject]]) -> [Article] {
+    func validateJSONData(jsonData: [[String:AnyObject]]) -> [ArticleViewModel] {
 
         var author: String?
 
@@ -39,7 +39,7 @@ extension Gettable {
 
         var articleImageUrl: String?
 
-        var articles: [Article] = []
+        var articles: [ArticleViewModel] = []
 
         for article in jsonData {
 
@@ -102,7 +102,7 @@ extension Gettable {
             let newArticle = Article(author: author!, title: title!, description: description!, url: articleUrl!, imageUrl: articleImageUrl!)
 
             // Add the article to our articles list
-            articles.append(newArticle)
+            articles.append(ArticleViewModel(article: newArticle))
 
         }
 

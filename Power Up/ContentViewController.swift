@@ -20,23 +20,11 @@ class ContentViewController: UIViewController {
 
     @IBOutlet var leftWall: UIView!
 
+    /// ViewModel for ContentViewController
+    var articleViewModel: ArticleViewModel?
+
     /// Index of the current page (pageView). Could be used to tell which article we are reading (ex. Article #1)
     var pageIndex: Int?
-
-    /// URL of the image given by MainViewController
-    var imageUrl: String?
-
-    /// Title of the article given by MainViewController
-    var titleText: String?
-
-    /// Source of the article given by MainViewController
-    var sourceText: String?
-
-    /// Description of the article given by MainViewController
-    var descriptionText: String?
-
-    /// The URL of the article given by MainViewController
-    var articleUrl: URL?
 
     /// ImageDownloader Object from AlamofireImage to apply image resizing effects
     let downloader = ImageDownloader()
@@ -53,14 +41,14 @@ class ContentViewController: UIViewController {
         // Setup the labels within the view
 
         // Check if the source text is available
-        if let potentialSourceText = sourceText {
+        if let potentialSourceText = articleViewModel?.getSourceText() {
 
             self.sourceLabel.text = potentialSourceText
 
         }
 
         // Check if the articles title is available
-        if let potentialTitle = titleText {
+        if let potentialTitle = articleViewModel?.titleText {
 
             self.titleLabel.text = potentialTitle
 
@@ -68,9 +56,9 @@ class ContentViewController: UIViewController {
         }
 
         // Download the image from the provided article image URL
-        if imageUrl != nil {
+        if articleViewModel?.imageURL != nil {
 
-            if imageUrl == "noimage" {
+            if articleViewModel?.imageURL == "noimage" {
 
                 // If the article never came with an image, put in a placeholder
                 articleImage.image = UIImage(named: "noimage")
@@ -93,7 +81,7 @@ class ContentViewController: UIViewController {
         super.viewDidDisappear(true)
 
         // Make sure an image exists
-        if imageUrl != nil {
+        if articleViewModel?.imageURL != nil {
 
             // Resize the image back to normal (originally animated in viewDidAppear method).
             UIView.animate(withDuration: 0.1) {
@@ -109,7 +97,7 @@ class ContentViewController: UIViewController {
         super.viewDidAppear(true)
 
         // Make sure an image exists
-        if imageUrl != nil {
+        if articleViewModel?.imageURL != nil {
 
             // Animate the labels, and image on the view
             animateLabelsAndViews()
@@ -134,13 +122,8 @@ class ContentViewController: UIViewController {
 
             let detailView = segue.destination as! DetailViewController
 
+            detailView.articleViewModel = articleViewModel
             detailView.image = self.articleImage.image
-
-            detailView.detailTitle = self.titleText
-
-            detailView.detailDescription = self.descriptionText
-
-            detailView.articleUrl = self.articleUrl
         }
     }
 
@@ -162,7 +145,7 @@ class ContentViewController: UIViewController {
      */
     func downloadImage() {
 
-        let urlRequest = URLRequest(url: URL(string: self.imageUrl!)!)
+        let urlRequest = URLRequest(url: URL(string: (self.articleViewModel?.imageURL!)!)!)
         showActivityIndicator()
 
         downloader.download(urlRequest) { response in

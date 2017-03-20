@@ -24,17 +24,12 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var safariButton: UIButton!
 
+    /// ArticleViewModel for the DetailViewController
+    var articleViewModel: ArticleViewModel?
+
     /// Image of the article given by ContentViewController
     var image: UIImage?
 
-    /// Title of the article given by ContentViewController
-    var detailTitle: String?
-
-    /// Description of the article given by ContentViewController
-    var detailDescription: String?
-
-    /// URL of the article given by ContentViewController
-    var articleUrl: URL?
 
     override func viewDidLayoutSubviews() {
 
@@ -123,14 +118,14 @@ class DetailViewController: UIViewController {
         }
 
         // Check if a title has been given to the detailViewController
-        if let potentialTitle = detailTitle {
+        if let potentialTitle = articleViewModel?.titleText {
 
             self.detailTitleLabel.text = potentialTitle
 
         }
 
         // Check if a description has been given to the detailViewController
-        if let potentialDescription = detailDescription {
+        if let potentialDescription = articleViewModel?.descriptionText {
 
             self.detailDescripLabel.text = potentialDescription
 
@@ -149,10 +144,10 @@ class DetailViewController: UIViewController {
     // article.
     @IBAction func safariButtonTapped(_ sender: Any) {
 
-        if articleUrl != nil {
+        if articleViewModel?.articleUrl != nil {
 
             // Open the article in Safari if the link exists
-            UIApplication.shared.open(articleUrl!, options: [:], completionHandler: nil)
+            UIApplication.shared.open((articleViewModel?.articleUrl!)!, options: [:], completionHandler: nil)
 
         } else {
 

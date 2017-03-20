@@ -35,7 +35,7 @@ class MainViewControllerSpec: QuickSpec {
 
         it("Should have at most 10 articles readily available.", closure: {
 
-            expect(self.mainViewController.mainViewModel.articles.count).to(beGreaterThan(0))
+            expect(self.mainViewController.articles.count).to(beGreaterThan(0))
         })
 
     }

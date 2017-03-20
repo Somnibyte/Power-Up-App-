@@ -23,7 +23,7 @@ extension MainViewController: UIPageViewControllerDataSource {
     func viewControllerAtIndex(index: Int) -> ContentViewController {
 
         // If there are no articles, send out an alert to refresh the app.
-        if mainViewModel.articles.count == 0 || index >= mainViewModel.articles.count {
+        if articles.count == 0 || index >= articles.count {
 
             return ContentViewController()
         }
@@ -33,15 +33,7 @@ extension MainViewController: UIPageViewControllerDataSource {
         // Add the contents of each article to the contentViewController
         contentViewController.pageIndex = index
 
-        contentViewController.imageUrl =  mainViewModel.articles[index].imageUrl
-
-        contentViewController.titleText =  mainViewModel.articles[index].title
-
-        contentViewController.sourceText = mainViewModel.getSourceText()
-
-        contentViewController.descriptionText =  mainViewModel.articles[index].description
-
-        contentViewController.articleUrl =  mainViewModel.articles[index].url
+        contentViewController.articleViewModel = articles[index]
 
         return contentViewController
     }
@@ -83,7 +75,7 @@ extension MainViewController: UIPageViewControllerDataSource {
         index += 1
 
         // If the index is at the last article, do not return anything as there is no other page after the last page.
-        if index == self.mainViewModel.articles.count {
+        if index == self.articles.count {
 
             return nil
 
@@ -94,7 +86,7 @@ extension MainViewController: UIPageViewControllerDataSource {
 
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
 
-        return self.mainViewModel.articles.count
+        return self.articles.count
 
     }
 

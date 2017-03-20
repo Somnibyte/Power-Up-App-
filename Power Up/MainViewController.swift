@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     var noInternetConnection: Bool = false
 
     /// The ViewModel for the MainViewController View Controller
-    var mainViewModel: MainViewModel!
+    var articles: [ArticleViewModel] = []
 
     /// Activity Indicator to display the progress of downloading our articles
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle:
@@ -64,7 +64,7 @@ class MainViewController: UIViewController {
 
             if response {
                 // Obtain the downloaded data
-                self?.mainViewModel = MainViewModel(withArticles: data)
+                self?.articles = data
 
                 // Setup the initial pageViewController
                 self?.pageViewController = self?.storyboard?.instantiateViewController(withIdentifier: "pageViewController") as! UIPageViewController
